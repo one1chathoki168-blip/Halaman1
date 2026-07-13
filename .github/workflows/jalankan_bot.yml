@@ -1,0 +1,28 @@
+name: Bot Kunjungan Otomatis
+
+on:
+  schedule:
+    # 🎯 ATUR JADWAL DI SINI: Kode di bawah ini diatur agar server cloud menyala otomatis setiap 1 jam sekali.
+    # Anda bisa mengubah angka '0' menjadi '*/30' jika ingin bot menyala otomatis setiap 30 menit sekali.
+    - cron: '0 * * * *'
+  workflow_dispatch: # Tombol rahasia agar Anda bisa mengetes jalan bot kapan saja secara manual
+
+jobs:
+  run-bot:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Mengambil kode repository
+      uses: actions/checkout@v3
+
+    - name: Menyiapkan Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    - name: Menginstal Pustaka & Browser Chrome Cloud
+      run: |
+        pip install playwright==1.47.0
+        playwright install chromium
+
+    - name: Mengeksekusi Skrip Python
+      run: python Ai3_pengunjung_halaman.py
