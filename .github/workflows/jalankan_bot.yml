@@ -4,7 +4,7 @@ on:
   schedule:
     # 🎯 ATUR JADWAL DI SINI: Kode di bawah ini diatur agar server cloud menyala otomatis setiap 1 jam sekali.
     # Anda bisa mengubah angka '0' menjadi '*/30' jika ingin bot menyala otomatis setiap 30 menit sekali.
-    - cron: '0 * * * *'
+    - cron: '0 */12 * * *'
   workflow_dispatch: # Tombol rahasia agar Anda bisa mengetes jalan bot kapan saja secara manual
 
 jobs:
